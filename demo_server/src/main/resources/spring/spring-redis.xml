@@ -8,6 +8,9 @@
 
     <context:property-placeholder location="classpath:redis.properties" ignore-unresolvable="true"/>
     
+     <!-- 扫描service包下所有使用注解的类型 -->
+	<context:component-scan base-package="com.shuyu.redis.cluster" />
+	
 	<!--==================== redis配置 start ==================== -->
 	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
 		<property name="maxTotal" value="${redis.maxTotal}" />
@@ -23,10 +26,11 @@
 		<constructor-arg name="port" value="${redis.port}" />
 	</bean>
 
-	<bean id="redisProvide" class="com.shuyu.redis.cluster.RedisProvide">
+	<!-- <bean id="redisProvide" class="com.shuyu.redis.cluster.impl.RedisProvide">
 		<constructor-arg ref="jedisClusterFactory" />
-	</bean>
+	</bean> -->
 
+   
 	<!--==================== redis配置 end ==================== -->
 
 

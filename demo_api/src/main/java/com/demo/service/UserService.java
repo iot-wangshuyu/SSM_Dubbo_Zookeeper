@@ -8,5 +8,7 @@ public interface UserService {
 	List<User> getListUser();
 	
 	User queryUser();
+	
+	List<User> getCacheListUser();
 
 }
